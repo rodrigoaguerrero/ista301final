@@ -104,11 +104,14 @@ def random_seed():
     random.seed(random.randint(1,200000))
     x = random.random()
     return x
+
 def color_offset():
     options = [True, False]
     return random.choice(options)
+
 def glitch_amount():
-    return random.randint(1,10) 
+    return random.randint(1,10)
+
 def glitch_image():
 
     glitcher = ImageGlitcher()
@@ -118,11 +121,22 @@ def glitch_image():
     glitch_img = glitcher.glitch_image(img, glitch_amount(), color_offset= color_offset(), seed = random_seed())
 
     glitch_img.save(r'/Users/rodrigoguerrero/Documents/GitHub/ista301final/output/test_out.jpg')
+    print("The photomontage has been glitched!")
+    open_photomontage('/Users/rodrigoguerrero/Documents/GitHub/ista301final/output/test_out.jpg')
 
-    
+def enter_loop():
+    while True:
+    x = (input("Press 'Enter' to glitch the photomontage "))
+    if x == "":
+        glitch_image()
+        open_photomontage('/Users/rodrigoguerrero/Documents/GitHub/ista301final/output/test_out.jpg')
+    else:
+        print("Oops! It seems you pressed a key that I don't understand. Unfortunately, Rodrigo isn't the best programmer on the planet so, if this was a mistake, you will need to re-run me to create your glitch art. Sorry! But if you did mean to exit, well, fuck you.")
+        break
+
 def intro():
-    
-    message1 = "Hello! (Press enter to continue, not only here but throughout the rest of our time together.) "
+
+    message1 = "Hello! (Press enter to continue, not only here but throughout the rest of our time together.)\n "
     message2 = "Our names are Rodrigo Guerrero and Sylvia Zarnescu.\n"
     message3 = "What you are about to experience is the opportunity to create some glitch art.\n"
     message4 = "However, what makes this glitch art unique is two fold...\n"
@@ -131,9 +145,10 @@ def intro():
     message7 = "That sure was a long time ago. How long you might ask? Well, the song on the top of the Hot 100 that year? 'Thrift Shop' by Macklemore and Ryan Lewis.\n"
     message8 = "But we digress...Here, we are asking you to take a look at the original photomontage.\n (Press enter to view the image)\n"
     message9 = "Pretty, huh? Well, let's glitch it! You will now be asked to press the enter button. Each time you press the enter button, you will be able to glitch the image randomly until it is at your liking. \n"
-    
+
     type_writer(message1)
     take_input = input("")
+
     if take_input == "":
         type_writer(message2)
         take_input
@@ -157,11 +172,8 @@ def intro():
                                 take_input
                                 if take_input == "":
                                     open_photomontage("/Users/rodrigoguerrero/Documents/GitHub/ista301final/images/test_image.JPG")
-                                    take_input
-                                    if take_input == "":
-                                        glitch_image()
-                                    else:
-                                        exit_module()
+                                    time.sleep(5)
+                                    enter_loop()
                                 else:
                                     exit_module()
                             else:
@@ -180,11 +192,10 @@ def intro():
         exit_module()
 
 def main():
-    # load_animation()
-    # intro()
-    # glitch_image()
-    # color_offset()
-    glitch_image()
+    load_animation()
+    intro()
+    enter_loop()
+
 
     
     
