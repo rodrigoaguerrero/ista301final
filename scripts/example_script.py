@@ -126,14 +126,13 @@ def glitch_image():
 
 def enter_loop():
     while True:
-    x = (input("Press 'Enter' to glitch the photomontage "))
-    if x == "":
-        glitch_image()
-        open_photomontage('/Users/rodrigoguerrero/Documents/GitHub/ista301final/output/test_out.jpg')
-    else:
-        print("Oops! It seems you pressed a key that I don't understand. Unfortunately, Rodrigo isn't the best programmer on the planet so, if this was a mistake, you will need to re-run me to create your glitch art. Sorry! But if you did mean to exit, well, fuck you.")
-        break
-
+        x = (input("Press 'Enter' to glitch the photomontage "))
+        if x == "":
+            glitch_image()
+            open_photomontage('/Users/rodrigoguerrero/Documents/GitHub/ista301final/output/test_out.jpg')
+        else:
+            print("Oops! It seems you pressed a key that I don't understand. Unfortunately, Rodrigo isn't the best programmer on the planet so, if this was a mistake, you will need to re-run me to create your glitch art. Sorry! But if you did mean to exit, well, fuck you.")
+            break
 def intro():
 
     message1 = "Hello! (Press enter to continue, not only here but throughout the rest of our time together.)\n "
@@ -145,7 +144,7 @@ def intro():
     message7 = "That sure was a long time ago. How long you might ask? Well, the song on the top of the Hot 100 that year? 'Thrift Shop' by Macklemore and Ryan Lewis.\n"
     message8 = "But we digress...Here, we are asking you to take a look at the original photomontage.\n (Press enter to view the image)\n"
     message9 = "Pretty, huh? Well, let's glitch it! You will now be asked to press the enter button. Each time you press the enter button, you will be able to glitch the image randomly until it is at your liking. \n"
-
+    
     type_writer(message1)
     take_input = input("")
 
@@ -192,8 +191,8 @@ def intro():
         exit_module()
 
 def main():
-    load_animation()
-    intro()
+    #load_animation()
+    #intro()
     enter_loop()
 
 
