@@ -83,7 +83,8 @@ def load_animation():
 def intro():
 
     exitmessage = "Oops! It seems you pressed a key other than 'Enter'. Unfortunately, Rodrigo isn't the best programmer on the planet so, if this was a mistake, you will need to re-run the script to create your glitch art. Sorry! But if you did mean to exit, well, fuck you."
-    message1 = "Hello! (Press enter to continue, not only here but throughout the rest of our time together.)\n "
+    
+    message1 = "Hello! (Press enter to continue, not only here but throughout the rest of our time together.) "
     message2 = "Our names are Rodrigo Guerrero and Sylvia Zarnescu.\n"
     message3 = "What you are about to experience is the opportunity to create some glitch art.\n"
     message4 = "However, what makes this glitch art unique is two fold:\n"
@@ -95,13 +96,9 @@ def intro():
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.1)
-        
-    take_input1 = input()
-
+    take_input1 = input("")
     if take_input1 == "":
-
         for char in message2:
-
             sys.stdout.write(char)
             sys.stdout.flush()
             time.sleep(0.1)
@@ -116,7 +113,7 @@ def intro():
                     time.sleep(0.1)
 
             else:
-                
+
                 for char in exitmessage:
                     sys.stdout.write(char)
                     sys.stdout.flush()
