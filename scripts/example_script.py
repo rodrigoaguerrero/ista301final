@@ -3,13 +3,18 @@ enter 'source glitch_env/bin/activate' to terminal to enter virtual environment
 then naviate to directory
 
 '''
+from asyncore import ExitNow
 from json import load
+import re
+from turtle import color
 from PIL import Image
 from glitch_this import ImageGlitcher
 import random
 import time
 import sys
 import os
+
+from numpy import take
 
 def load_animation():
   
@@ -79,75 +84,109 @@ def load_animation():
     # for linux / Mac OS
     else:
         os.system("clear")
-
-def intro():
-
-    exitmessage = "Oops! It seems you pressed a key other than 'Enter'. Unfortunately, Rodrigo isn't the best programmer on the planet so, if this was a mistake, you will need to re-run the script to create your glitch art. Sorry! But if you did mean to exit, well, fuck you."
-    
-    message1 = "Hello! (Press enter to continue, not only here but throughout the rest of our time together.) "
-    message2 = "Our names are Rodrigo Guerrero and Sylvia Zarnescu.\n"
-    message3 = "What you are about to experience is the opportunity to create some glitch art.\n"
-    message4 = "However, what makes this glitch art unique is two fold:\n"
-    message5 = "1. The art that you will be glitching is a photomontage created by the both of us and represents the both of us.\n"
-    message6 = "It represents not only the both of us as individuals but the friendship we have created since we first met, nearly 10 years ago, in the fall of 2013.\n "
-    message7 = "That sure was a long time ago. How long you might ask? Well, the song on the top of the Hot 100 that year? 'Thrift Shop' by Macklemore and Ryan Lewis."
-
-    for char in message1:
+def type_writer(message):
+    for char in message:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(0.1)
-    take_input1 = input("")
-    if take_input1 == "":
-        for char in message2:
-            sys.stdout.write(char)
-            sys.stdout.flush()
-            time.sleep(0.1)
-            take_input2 = input()
+    time.sleep(5)
 
-            if take_input2 == "":
+def exit_module():
+    print("Oops! It seems you pressed a key that I don't understand. Unfortunately, Rodrigo isn't the best programmer on the planet so, if this was a mistake, you will need to re-run me to create your glitch art. Sorry! But if you did mean to exit, well, fuck you.")
+    time.sleep(5)
+    exit()
 
-                for char in message3:
+def open_photomontage(image):
+    image = Image.open(image)
+    image.show()
 
-                    sys.stdout.write(char)
-                    sys.stdout.flush()
-                    time.sleep(0.1)
-
-            else:
-
-                for char in exitmessage:
-                    sys.stdout.write(char)
-                    sys.stdout.flush()
-                    time.sleep(0.1)
-                    time.sleep(5)
-
-    else:
-        for char in exitmessage:
-            sys.stdout.write(char)
-            sys.stdout.flush()
-            time.sleep(0.1)
-        time.sleep(5)
-
-
-
-def main():
-    load_animation()
-    intro()
-    #
-    #intro()
-    '''
-    random.seed(random.randint(1,2000000))
+def random_seed():
+    random.seed(random.randint(1,200000))
     x = random.random()
-    print(x)
+    return x
+def color_offset():
+    options = [True, False]
+    return random.choice(options)
+def glitch_amount():
+    return random.randint(1,10) 
+def glitch_image():
 
     glitcher = ImageGlitcher()
 
     img = Image.open(r'/Users/rodrigoguerrero/Documents/GitHub/ista301final/images/test_image.JPG')
-    print(img
-
-    glitch_img = glitcher.glitch_image(img, 8, color_offset=True, seed = x)
+    
+    glitch_img = glitcher.glitch_image(img, glitch_amount(), color_offset= color_offset(), seed = random_seed())
 
     glitch_img.save(r'/Users/rodrigoguerrero/Documents/GitHub/ista301final/output/test_out.jpg')
-    '''
+
+    
+def intro():
+    
+    message1 = "Hello! (Press enter to continue, not only here but throughout the rest of our time together.) "
+    message2 = "Our names are Rodrigo Guerrero and Sylvia Zarnescu.\n"
+    message3 = "What you are about to experience is the opportunity to create some glitch art.\n"
+    message4 = "However, what makes this glitch art unique is two fold...\n"
+    message5 = "1) The art that you will be glitching is a photomontage created by the both of us and 2) it represents the both of us.\n"
+    message6 = "It represents not only the both of us as individuals but the friendship we have created since we first met, nearly 10 years ago, in the fall of 2013.\n "
+    message7 = "That sure was a long time ago. How long you might ask? Well, the song on the top of the Hot 100 that year? 'Thrift Shop' by Macklemore and Ryan Lewis.\n"
+    message8 = "But we digress...Here, we are asking you to take a look at the original photomontage.\n (Press enter to view the image)\n"
+    message9 = "Pretty, huh? Well, let's glitch it! You will now be asked to press the enter button. Each time you press the enter button, you will be able to glitch the image randomly until it is at your liking. \n"
+    
+    type_writer(message1)
+    take_input = input("")
+    if take_input == "":
+        type_writer(message2)
+        take_input
+        if take_input == "":
+            type_writer(message3)
+            take_input
+            if take_input == "":
+                type_writer(message4)
+                take_input
+                if take_input == "":
+                    type_writer(message5)
+                    take_input
+                    if take_input == "":
+                        type_writer(message6)
+                        take_input
+                        if take_input == "":
+                            type_writer(message7)
+                            take_input
+                            if take_input == "":
+                                type_writer(message8)
+                                take_input
+                                if take_input == "":
+                                    open_photomontage("/Users/rodrigoguerrero/Documents/GitHub/ista301final/images/test_image.JPG")
+                                    take_input
+                                    if take_input == "":
+                                        glitch_image()
+                                    else:
+                                        exit_module()
+                                else:
+                                    exit_module()
+                            else:
+                                exit_module()
+                        else:
+                            exit_module()
+                    else:
+                        exit_module()
+                else:
+                    exit_module()
+            else:
+                exit_module()
+        else:
+            exit_module()
+    else:
+        exit_module()
+
+def main():
+    # load_animation()
+    # intro()
+    # glitch_image()
+    # color_offset()
+    glitch_image()
+
+    
     
 if __name__ == "__main__":
     main()
