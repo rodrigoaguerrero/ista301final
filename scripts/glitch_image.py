@@ -136,13 +136,13 @@ def intro():
 
     message1 = "Hello! (Press 'enter' to continue)\n "
     message2 = "Our names are Rodrigo Guerrero and Sylvia Zarnescu.\n"
-    message3 = "What you are about to experience is the opportunity to create some glitch art.\n"
-    message4 = "However, what makes this glitch art unique is two fold...\n"
-    message5 = "1) The art that you will be glitching is a photomontage created by the both of us and 2) it represents the both of us.\n"
-    message6 = "It represents not only the both of us as individuals but the friendship we have created since we first met, nearly 10 years ago, in the fall of 2013.\n "
+    message3 = "What you are about to experience is the opportunity to participate in our final project and create art with us.\n"
+    message4 = "What makes this art unique is as follows…\n"
+    message5 = "For our final project, we have created a photomontage representing ourselves, our childhoods, and our futures. Naturally, graduating college is a scary concept with our futures uncertain and unknowable. We are currently sitting on perhaps the biggest margin of our lives, two living glitches in the system. You will get the chance to materialize that glitch over the next several minutes. \n"
+    message6 = "This photomontage represents the friendship we have created and held since we first met, nearly 10 years ago, in the fall of 2013.\n "
     message7 = "That sure was a long time ago. How long you might ask? Well, the song on the top of the Hot 100 that year? 'Thrift Shop' by Macklemore and Ryan Lewis.\n"
-    message8 = "But we digress...Here, we are asking you to take a look at the original photomontage.\n"
-    message9 = "Pretty, huh? Well, let's glitch it! You will now be asked to press the space bar. Each time you press the space bar, followed by the enter key you will be able to glitch the image randomly until it is at your liking. \n"
+    message8 = "But we digress... Now, let’s take a look at our original photomontage.\n"
+    message9 = "Pretty cool, huh? Imagine this as an amalgamation of everything leading up to our college graduation. Now, let’s glitch it! You will now be asked to press the space bar. Each time you press the space bar, followed by the enter key you will be able to glitch the image randomly until it is at your liking. \n"
     
     type_writer(message1)
     take_input = input("")
